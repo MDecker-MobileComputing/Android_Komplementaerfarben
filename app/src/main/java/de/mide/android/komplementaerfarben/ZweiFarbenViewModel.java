@@ -1,5 +1,7 @@
 package de.mide.android.komplementaerfarben;
 
+import static de.mide.android.komplementaerfarben.MainActivity.TAG4LOGGING;
+
 import android.util.Log;
 
 import androidx.lifecycle.ViewModel;
@@ -28,7 +30,7 @@ public class ZweiFarbenViewModel extends ViewModel {
      */
     public ZweiFarbenViewModel() {
 
-        Log.i( MainActivity.TAG4LOGGING, "ViewModel erzeugt" );
+        Log.i( TAG4LOGGING, "ViewModel erzeugt" );
     }
 
 
@@ -52,7 +54,7 @@ public class ZweiFarbenViewModel extends ViewModel {
      *
      * @param blau Blau-Anteil von 0..255
      *
-     * @return RGB-Farbcode als ein int-Wert, mit voller Deckkraft
+     * @return RGB-Farbcode als ein int-Wert, mit voller Deckkraft (Alpha-Wert=255)
      */
     private int rotGruenBlauZuRGB( int rot, int gruen, int blau ) {
 
@@ -76,9 +78,11 @@ public class ZweiFarbenViewModel extends ViewModel {
 
         _farbe1 = rotGruenBlauZuRGB( rot1, gruen1, blau1 );
 
+
         int rot2   = 255 - rot1;
         int gruen2 = 255 - gruen1;
         int blau2  = 255 - blau1;
+
         _farbe2 = rotGruenBlauZuRGB( rot2, gruen2, blau2 );
     }
 
