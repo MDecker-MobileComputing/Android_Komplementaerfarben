@@ -13,8 +13,6 @@ import java.util.Random;
  */
 public class ZweiFarbenViewModel extends ViewModel {
 
-    private static final String TAG4LOGGING = "ZweiFarbenViewModel";
-
     /** RGB-Farbcode für die obere Farbe. */
     private int _farbe1 = -1;
 
@@ -30,7 +28,7 @@ public class ZweiFarbenViewModel extends ViewModel {
      */
     public ZweiFarbenViewModel() {
 
-        Log.i( TAG4LOGGING, "ViewModel erzeugt" );
+        Log.i( MainActivity.TAG4LOGGING, "ViewModel erzeugt" );
     }
 
 
@@ -54,11 +52,16 @@ public class ZweiFarbenViewModel extends ViewModel {
      *
      * @param blau Blau-Anteil von 0..255
      *
-     * @return RGB-Farbcode als ein int-Wert
+     * @return RGB-Farbcode als ein int-Wert, mit voller Deckkraft
      */
     private int rotGruenBlauZuRGB( int rot, int gruen, int blau ) {
 
-        return ( rot << 16 ) | ( gruen << 8 ) | blau;
+        final int alphaWert = 0xff; // volle Deckkraft
+
+        return ( alphaWert << 24 ) |
+               ( rot       << 16 ) |
+               ( gruen     << 8  ) |
+                 blau;
     }
 
 

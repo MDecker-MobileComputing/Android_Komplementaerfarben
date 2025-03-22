@@ -20,7 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
  */
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TAG4LOGGING = "MainActivity";
+    public static final String TAG4LOGGING = "KomplementFarben";
 
     /** ViewModel-Instance für die Verwaltung der von dieser Activity dargestellten Farben. */
     private ZweiFarbenViewModel _zweiFarbenViewModel;
