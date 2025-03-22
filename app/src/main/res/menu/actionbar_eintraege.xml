@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Wegen showAsAction="always" werden für die folgenden Menü-Einträge
+     die Icons in der ActionBar angezeigt, aber nicht der Text; es werden
+     trotzdem Texte gesetzt, weil diese evtl. von Screenreadern, wie
+     sie von sehbehinderten Menschen verwendet werden, benötigt werden.
+     -->
+    <item
+        android:id="@+id/actionbar_neuefarbe"
+        android:icon="@drawable/baseline_refresh_24"
+        android:title="@string/actionbar_neu"
+        app:showAsAction="always|withText" />
+    <!-- wegen "withText" wird der Text zusätzlich zum Icon angezeigt,
+         wenn genügend Platz vorhanden ist. -->
+
+</menu>

@@ -1,3 +1,9 @@
 <resources>
+
     <string name="app_name">Komplementärfarben</string>
+
+    <string name="actionbar_neu">Neue Farbe</string>
+
+    <string name="toast_actionbar_nicht_gefunden">Fehler: ActionBar nicht gefunden</string>
+
 </resources>
