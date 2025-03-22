@@ -4,18 +4,33 @@ import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 
 /**
  * Einzige Activity in der App.
  */
 public class MainActivity extends AppCompatActivity {
+
+    public static final String TAG4LOGGING = "MainActivity";
+
+    /** ViewModel-Instance für die Verwaltung der von dieser Activity dargestellten Farben. */
+    private ZweiFarbenViewModel _zweiFarbenViewModel;
+
+    /** TextView für Darstellung der oberen Farbe. */
+    private TextView _farbe1TextView;
+
+    /** TextView für Darstellung der unteren Farbe. */
+    private TextView _farbe2TextView;
+
 
     /**
      * Lifecycle-Methode, lädt Layout-Datei.
@@ -25,6 +40,28 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
+
+        _farbe1TextView = findViewById( R.id.textview_farbe1 );
+        _farbe2TextView = findViewById( R.id.textview_farbe2 );
+
+        _zweiFarbenViewModel =
+                new ViewModelProvider( this ).get (ZweiFarbenViewModel.class );
+
+        if ( _zweiFarbenViewModel.farbenNochNichtErzeugt() ) {
+
+            Log.i( TAG4LOGGING, "Noch keine Farben erzeugt" );
+            neueFarbenErzeugen();
+
+        } else {
+
+            int farbe1 = _zweiFarbenViewModel.getFarbe1();
+            int farbe2 = _zweiFarbenViewModel.getFarbe2();
+
+            _farbe1TextView.setBackgroundColor( farbe1 );
+            _farbe2TextView.setBackgroundColor( farbe2 );
+
+            Log.i( TAG4LOGGING, "Alte Farben wiederhergestellt" );
+        }
 
         actionBarKonfigurieren();
     }
@@ -85,14 +122,30 @@ public class MainActivity extends AppCompatActivity {
 
         if ( selectedMenuId == R.id.actionbar_neuefarbe ) {
 
-            // TODO: neue Farbe erzeugen
-
+            neueFarbenErzeugen();
             return true;
 
         } else {
 
             return super.onOptionsItemSelected( item );
         }
+    }
+
+
+    /**
+     * Methode zum Erzeugen von zwei neuen Farben.
+     */
+    private void neueFarbenErzeugen() {
+
+        _zweiFarbenViewModel.neueFarbenErzeugen();
+
+        Log.i( TAG4LOGGING, "Neue Farben erzeugt: " + _zweiFarbenViewModel.toString() );
+
+        int farbe1 = _zweiFarbenViewModel.getFarbe1();
+        int farbe2 = _zweiFarbenViewModel.getFarbe2();
+
+        _farbe1TextView.setBackgroundColor( farbe1 );
+        _farbe2TextView.setBackgroundColor( farbe2 );
     }
 
 }
