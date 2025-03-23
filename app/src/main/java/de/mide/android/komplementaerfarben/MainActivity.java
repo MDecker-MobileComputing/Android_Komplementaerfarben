@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     /** ViewModel-Instance für die Verwaltung der von dieser Activity dargestellten Farben. */
     private ZweiFarbenViewModel _zweiFarbenViewModel;
 
-    /** TextView für Darstellung der oberen Farbe. */
-    private TextView _farbe1TextView;
+    /** View für Darstellung der oberen Farbe. */
+    private View _farbe1View;
 
-    /** TextView für Darstellung der unteren Farbe. */
-    private TextView _farbe2TextView;
+    /** View für Darstellung der unteren Farbe. */
+    private View _farbe2View;
 
 
     /**
@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
 
-        _farbe1TextView = findViewById( R.id.textview_farbe1 );
-        _farbe2TextView = findViewById( R.id.textview_farbe2 );
+        _farbe1View = findViewById( R.id.textview_farbe1 );
+        _farbe2View = findViewById( R.id.textview_farbe2 );
 
         _zweiFarbenViewModel =
                 new ViewModelProvider( this ).get (ZweiFarbenViewModel.class );
@@ -182,8 +182,8 @@ public class MainActivity extends AppCompatActivity {
         int farbe1 = _zweiFarbenViewModel.getFarbe1();
         int farbe2 = _zweiFarbenViewModel.getFarbe2();
 
-        _farbe1TextView.setBackgroundColor( farbe1 );
-        _farbe2TextView.setBackgroundColor( farbe2 );
+        _farbe1View.setBackgroundColor( farbe1 );
+        _farbe2View.setBackgroundColor( farbe2 );
 
         ActionBar actionBar = getSupportActionBar();
         if ( actionBar != null ) {
