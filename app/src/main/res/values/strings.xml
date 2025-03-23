@@ -6,6 +6,7 @@
     <string name="actionbar_zwischenablage">In Zwischenablage kopieren</string>
 
     <string name="clipboard_titel">Zwei komplementäre Farben</string>
+    <string name="platzhalter_farbcode">Farb-Code</string>
 
     <string name="toast_actionbar_nicht_gefunden">Fehler: ActionBar nicht gefunden</string>
     <string name="toast_clipboard_nicht_gefunden">Fehler: Zwischenablage nicht verfügbar</string>

@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,13 +26,19 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG4LOGGING = "KomplementFarben";
 
     /** ViewModel-Instance für die Verwaltung der von dieser Activity dargestellten Farben. */
-    private ZweiFarbenViewModel _zweiFarbenViewModel;
+    private ZweiFarbenViewModel _zweiFarbenViewModel = null;
 
-    /** View für Darstellung der oberen Farbe. */
-    private View _farbe1View;
+    /** Farbfläche für Darstellung Farbe 1. */
+    private View _farbe1View = null;
 
-    /** View für Darstellung der unteren Farbe. */
-    private View _farbe2View;
+    /** Farbfläche für Darstellung Farbe 2. */
+    private View _farbe2View = null;
+
+    /** Element für Anzeige Farbcode 1. */
+    private TextView _farbe1TextView = null;
+
+    /** Element für Anzeige Farbcode 2. */
+    private TextView _farbe2TextView = null;
 
 
     /**
@@ -45,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
         _farbe1View = findViewById( R.id.view_farbe1 );
         _farbe2View = findViewById( R.id.view_farbe2 );
+
+        _farbe1TextView = findViewById( R.id.textview_farbe1 );
+        _farbe2TextView = findViewById( R.id.textview_farbe2 );
 
         _zweiFarbenViewModel =
                 new ViewModelProvider( this ).get (ZweiFarbenViewModel.class );
@@ -173,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Farben aus ViewModell dargestellen.
+     * Farben aus ViewModell dargestellen (Farbflächen und Anzeige Hex-Codes).
      */
     private void farbenDarstellen() {
 
@@ -185,12 +195,12 @@ public class MainActivity extends AppCompatActivity {
         _farbe1View.setBackgroundColor( farbe1 );
         _farbe2View.setBackgroundColor( farbe2 );
 
-        ActionBar actionBar = getSupportActionBar();
-        if ( actionBar != null ) {
 
-            String str = _zweiFarbenViewModel.toString();
-            actionBar.setSubtitle( str );
-        }
+        String hexStr1 = _zweiFarbenViewModel.getFarbe1Hex();
+        String hexStr2 = _zweiFarbenViewModel.getFarbe2Hex();
+
+        _farbe1TextView.setText( hexStr1 );
+        _farbe2TextView.setText( hexStr2 );
     }
 
 }

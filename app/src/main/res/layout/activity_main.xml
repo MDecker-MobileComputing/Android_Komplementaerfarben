@@ -15,6 +15,8 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
+      Die beiden TextView-Elemente haben nicht chainStyle="spread"
     -->
 
     <View
@@ -28,6 +30,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread" />
 
+    <TextView
+        android:id="@+id/textview_farbe1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/platzhalter_farbcode"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/view_farbe1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <View
         android:id="@+id/view_farbe2"
         android:layout_width="match_parent"
@@ -38,5 +51,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/textview_farbe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/platzhalter_farbcode"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/view_farbe2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
