@@ -54,12 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
 
-            int farbe1 = _zweiFarbenViewModel.getFarbe1();
-            int farbe2 = _zweiFarbenViewModel.getFarbe2();
-
-            _farbe1TextView.setBackgroundColor( farbe1 );
-            _farbe2TextView.setBackgroundColor( farbe2 );
-
+            farbenDarstellen();
             Log.i( TAG4LOGGING, "Alte Farben wiederhergestellt" );
         }
 
@@ -140,6 +135,17 @@ public class MainActivity extends AppCompatActivity {
         _zweiFarbenViewModel.neueFarbenErzeugen();
 
         Log.i( TAG4LOGGING, "Neue Farben erzeugt: " + _zweiFarbenViewModel.toString() );
+
+        farbenDarstellen();
+    }
+
+
+    /**
+     * Farben aus ViewModell dargestellen.
+     */
+    private void farbenDarstellen() {
+
+        _zweiFarbenViewModel.neueFarbenErzeugen();
 
         int farbe1 = _zweiFarbenViewModel.getFarbe1();
         int farbe2 = _zweiFarbenViewModel.getFarbe2();

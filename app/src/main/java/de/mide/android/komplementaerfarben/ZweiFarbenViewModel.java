@@ -72,7 +72,7 @@ public class ZweiFarbenViewModel extends ViewModel {
      */
     public void neueFarbenErzeugen() {
 
-        int rot1   = _zufallsGenerator.nextInt( 256 );
+        int rot1   = _zufallsGenerator.nextInt( 256 ); // 0..255
         int gruen1 = _zufallsGenerator.nextInt( 256 );
         int blau1  = _zufallsGenerator.nextInt( 256 );
 
@@ -106,7 +106,7 @@ public class ZweiFarbenViewModel extends ViewModel {
     /**
      * Hex-Code von Farbe 1.
      *
-     * @return RGB-Hex-Code, z.B. "0xF59864"
+     * @return RGB-Hex-Code, z.B. "F59864"
      */
     public String getFarbe1Hex() { return rgb2hex( _farbe1 ); }
 
@@ -114,7 +114,7 @@ public class ZweiFarbenViewModel extends ViewModel {
     /**
      * Hex-Code von Farbe 2.
      *
-     * @return RGB-Hex-Code, z.B. "0x69F45F"
+     * @return RGB-Hex-Code, z.B. "69F45F"
      */
     public String getFarbe2Hex() { return rgb2hex( _farbe2 ); }
 
@@ -124,18 +124,18 @@ public class ZweiFarbenViewModel extends ViewModel {
      *
      * @param rgbCode RGB-Farbcode, der in Hex-String umgewandelt werden soll
      *
-     * @return Farbe als RGB-Hex-Code, z.B. "0x69F45F"
+     * @return Farbe als RGB-Hex-Code, z.B. "69F45F"
      */
     private static String rgb2hex ( int rgbCode ) {
 
-        return String.format( "0x%06X", ( 0xFFFFFF & rgbCode ) );
+        return String.format( "%06X", ( 0xFFFFFF & rgbCode ) );
     }
 
 
     /**
      * String mit beiden Farb-Codes.
      *
-     * @return Hex-Codes der beiden Strings, z.B. "0xF59864 und 0x0A679B"
+     * @return Hex-Codes der beiden Strings, z.B. "F59864 und 0A679B"
      */
     @Override
     public String toString() {
@@ -149,5 +149,5 @@ public class ZweiFarbenViewModel extends ViewModel {
             return getFarbe1Hex() + " und " + getFarbe2Hex();
         }
     }
-    
+
 }
