@@ -106,7 +106,7 @@ public class ZweiFarbenViewModel extends ViewModel {
     /**
      * Hex-Code von Farbe 1.
      *
-     * @return RGB-Hex-Code, z.B. "F59864"
+     * @return RGB-Hex-Code, z.B. "#F59864"
      */
     public String getFarbe1Hex() { return rgb2hex( _farbe1 ); }
 
@@ -124,18 +124,18 @@ public class ZweiFarbenViewModel extends ViewModel {
      *
      * @param rgbCode RGB-Farbcode, der in Hex-String umgewandelt werden soll
      *
-     * @return Farbe als RGB-Hex-Code, z.B. "69F45F"
+     * @return Farbe als RGB-Hex-Code, z.B. "#69F45F"
      */
     private static String rgb2hex ( int rgbCode ) {
 
-        return String.format( "%06X", ( 0xFFFFFF & rgbCode ) );
+        return String.format( "#%06X", ( 0xFFFFFF & rgbCode ) );
     }
 
 
     /**
      * String mit beiden Farb-Codes.
      *
-     * @return Hex-Codes der beiden Strings, z.B. "F59864 und 0A679B"
+     * @return Hex-Codes der beiden Strings, z.B. "#F59864 und #0A679B"
      */
     @Override
     public String toString() {

@@ -152,6 +152,13 @@ public class MainActivity extends AppCompatActivity {
 
         _farbe1TextView.setBackgroundColor( farbe1 );
         _farbe2TextView.setBackgroundColor( farbe2 );
+
+        ActionBar actionBar = getSupportActionBar();
+        if ( actionBar != null ) {
+
+            String str = _zweiFarbenViewModel.toString();
+            actionBar.setSubtitle( str );
+        }
     }
 
 }
