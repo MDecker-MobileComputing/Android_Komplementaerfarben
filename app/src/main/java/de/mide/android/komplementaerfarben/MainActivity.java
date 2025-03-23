@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
 
-        _farbe1View = findViewById( R.id.textview_farbe1 );
-        _farbe2View = findViewById( R.id.textview_farbe2 );
+        _farbe1View = findViewById( R.id.view_farbe1 );
+        _farbe2View = findViewById( R.id.view_farbe2 );
 
         _zweiFarbenViewModel =
                 new ViewModelProvider( this ).get (ZweiFarbenViewModel.class );

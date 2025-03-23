@@ -10,22 +10,22 @@
     tools:context=".MainActivity">
 
     <View
-        android:id="@+id/textview_farbe1"
+        android:id="@+id/view_farbe1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/hoehe_farbbox"
         android:background="#808080"
-        app:layout_constraintBottom_toTopOf="@+id/textview_farbe2"
+        app:layout_constraintBottom_toTopOf="@+id/view_farbe2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread" />
 
     <View
-        android:id="@+id/textview_farbe2"
+        android:id="@+id/view_farbe2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/hoehe_farbbox"
         android:background="#808080"
-        app:layout_constraintTop_toBottomOf="@+id/textview_farbe1"
+        app:layout_constraintTop_toBottomOf="@+id/view_farbe1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
