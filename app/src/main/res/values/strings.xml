@@ -2,8 +2,12 @@
 
     <string name="app_name">Komplementärfarben</string>
 
-    <string name="actionbar_neu">Neue Farbe</string>
+    <string name="actionbar_neu">Neue Farben erzeugen</string>
+    <string name="actionbar_zwischenablage">In Zwischenablage kopieren</string>
+
+    <string name="clipboard_titel">Zwei komplementäre Farben</string>
 
     <string name="toast_actionbar_nicht_gefunden">Fehler: ActionBar nicht gefunden</string>
+    <string name="toast_clipboard_nicht_gefunden">Fehler: Zwischenablage nicht verfügbar</string>
 
 </resources>

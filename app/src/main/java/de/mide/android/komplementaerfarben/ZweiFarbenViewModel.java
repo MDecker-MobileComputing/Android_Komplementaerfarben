@@ -135,7 +135,7 @@ public class ZweiFarbenViewModel extends ViewModel {
     /**
      * String mit beiden Farb-Codes.
      *
-     * @return Hex-Codes der beiden Strings, z.B. "#F59864 und #0A679B"
+     * @return Hex-Codes der beiden Strings, z.B. "#F59864 / #0A679B"
      */
     @Override
     public String toString() {
@@ -146,7 +146,7 @@ public class ZweiFarbenViewModel extends ViewModel {
 
         } else {
 
-            return getFarbe1Hex() + " und " + getFarbe2Hex();
+            return getFarbe1Hex() + " / " + getFarbe2Hex();
         }
     }
 

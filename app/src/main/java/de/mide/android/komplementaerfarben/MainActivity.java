@@ -3,6 +3,8 @@ package de.mide.android.komplementaerfarben;
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -120,10 +122,40 @@ public class MainActivity extends AppCompatActivity {
             neueFarbenErzeugen();
             return true;
 
+        } else if ( selectedMenuId == R.id.actionbar_zwischenablage ) {
+
+            farbenInZwischenablageKopieren();
+            return true;
+
         } else {
 
             return super.onOptionsItemSelected( item );
         }
+    }
+
+
+    /**
+     * Aktuelle Farb-Codes in Zwischenablage kopieren
+     */
+    private void farbenInZwischenablageKopieren() {
+
+        ClipboardManager clipboard = (ClipboardManager)
+                getSystemService( CLIPBOARD_SERVICE );
+
+        if ( clipboard == null ) {
+
+            makeText( this, R.string.toast_clipboard_nicht_gefunden, LENGTH_LONG ).show();
+            return;
+        }
+
+
+        ClipData clip =
+                ClipData.newPlainText(
+                        getString( R.string.clipboard_titel ),
+                        _zweiFarbenViewModel.toString()
+                );
+
+        clipboard.setPrimaryClip( clip );
     }
 
 
