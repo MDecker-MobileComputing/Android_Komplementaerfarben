@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         _farbe2TextView = findViewById( R.id.textview_farbe2 );
 
         _zweiFarbenViewModel =
-                new ViewModelProvider( this ).get (ZweiFarbenViewModel.class );
+                new ViewModelProvider( this ).get ( ZweiFarbenViewModel.class );
 
         if ( _zweiFarbenViewModel.farbenNochNichtErzeugt() ) {
 
