@@ -61,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
 
         if ( _zweiFarbenViewModel.farbenNochNichtErzeugt() ) {
 
-            Log.i( TAG4LOGGING, "Noch keine Farben erzeugt" );
+            Log.i( TAG4LOGGING, "Noch keine Farben erzeugt." );
             neueFarbenErzeugen();
 
         } else {
 
             farbenDarstellen();
-            Log.i( TAG4LOGGING, "Alte Farben wiederhergestellt" );
+            Log.i( TAG4LOGGING, "Alte Farben wiederhergestellt." );
         }
 
         actionBarKonfigurieren();
