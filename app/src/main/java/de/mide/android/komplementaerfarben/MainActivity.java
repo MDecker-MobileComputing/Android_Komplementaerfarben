@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if ( _zweiFarbenViewModel.farbenNochNichtErzeugt() ) {
 
             Log.i( TAG4LOGGING, "Noch keine Farben erzeugt." );
-            neueFarbenErzeugen();
+            neueFarbenErzeugenUndDarstellen();
 
         } else {
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         if ( selectedMenuId == R.id.actionbar_neuefarbe ) {
 
-            neueFarbenErzeugen();
+            neueFarbenErzeugenUndDarstellen();
             return true;
 
         } else if ( selectedMenuId == R.id.actionbar_zwischenablage ) {
@@ -170,9 +170,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Methode zum Erzeugen von zwei neuen Farben.
+     * Methode zum Erzeugen von zwei neuen Farben; die neuen Farben werden danach
+     * auch dargestellt.
      */
-    private void neueFarbenErzeugen() {
+    private void neueFarbenErzeugenUndDarstellen() {
 
         _zweiFarbenViewModel.neueFarbenErzeugen();
 
@@ -186,8 +187,6 @@ public class MainActivity extends AppCompatActivity {
      * Farben aus ViewModell dargestellen (Farbflächen und Anzeige Hex-Codes).
      */
     private void farbenDarstellen() {
-
-        _zweiFarbenViewModel.neueFarbenErzeugen();
 
         int farbe1 = _zweiFarbenViewModel.getFarbe1();
         int farbe2 = _zweiFarbenViewModel.getFarbe2();
